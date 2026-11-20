@@ -1,0 +1,29 @@
+[project]
+name = "anilist-mcp"
+version = "1.1.0"
+description = "Connect AniList to Claude Code, ChatGPT and any AI agent through Cotlet.dev, a hosted MCP server. No AniList API key needed."
+readme = "README.md"
+license = "Elastic-2.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Cotlet.dev", email = "contact@cotlet.dev" }]
+keywords = ["anilist", "anilist api", "anilist mcp", "mcp server", "claude", "chatgpt", "ai agent", "cotlet"]
+classifiers = ["Programming Language :: Python :: 3", "Topic :: Office/Business"]
+dependencies = []
+
+[project.urls]
+Homepage = "https://cotlet.dev/integrations/anilist-api-mcp-server?utm_source=pypi&utm_medium=package&utm_campaign=anilist"
+Source = "https://github.com/cotlet-connect/anilist-mcp"
+
+[project.scripts]
+anilist-mcp = "anilist_agent:main"
+
+[build-system]
+requires = ["hatchling>=1.27"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel.force-include]
+"anilist_agent.py" = "anilist_agent.py"
+
+[tool.hatch.build.targets.sdist]
+include = ["anilist_agent.py", "README.md", "LICENSE", "mcp.json", "Dockerfile", "glama.json", "skills", "examples", ".cursor"]
